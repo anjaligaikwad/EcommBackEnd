@@ -1,0 +1,12 @@
+com\niit\ecommercebackend\model\User.class
+com\niit\ecommercebackend\dao\SupplierDAO.class
+com\niit\ecommercebackend\model\Supplier.class
+com\niit\ecommercebackend\dao\CategoryDAO.class
+com\niit\ecommercebackend\dao\Impl\UserDAOImpl.class
+com\niit\ecommercebackend\dao\Impl\SupplierDAOImpl.class
+com\niit\ecommercebackend\model\Product.class
+com\niit\ecommercebackend\dao\Impl\ProductDAOImpl.class
+com\niit\ecommercebackend\dao\UserDAO.class
+com\niit\ecommercebackend\model\Category.class
+com\niit\ecommercebackend\dao\Impl\CategoryDAOImpl.class
+com\niit\ecommercebackend\dao\ProductDAO.class

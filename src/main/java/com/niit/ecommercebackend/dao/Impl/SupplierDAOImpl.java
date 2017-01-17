@@ -23,7 +23,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 		public void addSupplier(Supplier s) {
 			Session session=sessionFactory.getCurrentSession();
-			session.persist(s);
+			session.saveOrUpdate(s);
 			
 		}
 

@@ -1,8 +1,12 @@
 package com.niit.ecommercebackend.model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -23,6 +27,14 @@ public class User {
 				private String  Phone_Number;
 
 				private String User_role;
+				
+				@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+				@JoinColumn(name = "billingid")
+				private BillingAddress billingAddress;
+
+				@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+				@JoinColumn(name = "shippingid")
+				private ShippingAddress shippingAddress;
 
 			
 				public User(int id, String name, String email, String password, String phonenumber,String role) {
@@ -98,5 +110,27 @@ public class User {
 				public void setPhone_Number(String phone_Number) {
 					Phone_Number = phone_Number;
 				}
+
+
+				public BillingAddress getBillingAddress() {
+					return billingAddress;
+				}
+
+
+				public void setBillingAddress(BillingAddress billingAddress) {
+					this.billingAddress = billingAddress;
+				}
+
+
+				public ShippingAddress getShippingAddress() {
+					return shippingAddress;
+				}
+
+
+				public void setShippingAddress(ShippingAddress shippingAddress) {
+					this.shippingAddress = shippingAddress;
+				}
+				
+				
 				
 }

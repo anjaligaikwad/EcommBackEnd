@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -24,34 +23,33 @@ public class ProductDAOImpl implements ProductDAO {
 	SessionFactory sessionFactory;
 
 	public void addProduct(Product p) {
-		Session session=sessionFactory.getCurrentSession();
-		session.persist(p);
-		
+		sessionFactory.getCurrentSession().saveOrUpdate(p);
+
 	}
 
 	public void updateProduct(Product p) {
-		Session session=sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.update(p);
-		
+
 	}
 
 	public List<Product> listProducts() {
-		Session session=sessionFactory.getCurrentSession();
-		List<Product> products=session.createQuery("from Product").getResultList();
+		Session session = sessionFactory.getCurrentSession();
+		List<Product> products = session.createQuery("from Product").getResultList();
 		return products;
 	}
 
 	public Product getProductById(int id) {
-		Session session=sessionFactory.getCurrentSession();
-		Product product=(Product)session.createQuery("from Product where id="+id).getSingleResult();
+		Session session = sessionFactory.getCurrentSession();
+		Product product = (Product) session.createQuery("from Product where id=" + id).getSingleResult();
 		return product;
 	}
 
 	public void removeProduct(int id) {
-		Session session=sessionFactory.getCurrentSession();
-		Product product=(Product)session.createQuery("from Product where id="+id).getSingleResult();
+		Session session = sessionFactory.getCurrentSession();
+		Product product = (Product) session.createQuery("from Product where id=" + id).getSingleResult();
 		session.delete(product);
-		
+
 	}
 
 	public List<Category> listcatname() {
@@ -64,7 +62,4 @@ public class ProductDAOImpl implements ProductDAO {
 		return null;
 	}
 
-
-
-	
 }

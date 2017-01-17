@@ -23,8 +23,8 @@ public class UserDAOImpl implements UserDAO {
 	public void save(User user) {
 //		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	    Session session = sessionFactory.getCurrentSession();
-//	    user.setUser_role("ROLE_USER");
-	    user.setUser_role("ROLE_ADMIN");
+	    user.setUser_role("ROLE_USER");
+//	    user.setUser_role("ROLE_ADMIN");
 	    session.saveOrUpdate(user);
 
 	}

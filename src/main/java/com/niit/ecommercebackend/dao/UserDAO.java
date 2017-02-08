@@ -1,17 +1,16 @@
 package com.niit.ecommercebackend.dao;
-import java.util.List;
-import com.niit.ecommercebackend.model.User;
+import com.niit.ecommercebackend.model.UserCustomer;
 
 
 	public interface UserDAO {
 
-		public void save(User user);
+		public void save(UserCustomer user);
 
-		public void update(User user);
+		public void update(UserCustomer user);
 
 		public void delete(int userid);
 
-		public User get(String userid);
+		public UserCustomer get(String username);
 
 	}
 

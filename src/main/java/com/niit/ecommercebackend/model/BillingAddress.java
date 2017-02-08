@@ -1,7 +1,9 @@
 package com.niit.ecommercebackend.model;
 
 
-	import javax.persistence.CascadeType;
+	import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 	import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
@@ -17,7 +19,12 @@ package com.niit.ecommercebackend.model;
 	@Component
 	@Entity
 	@Table
-	public class BillingAddress {
+	public class BillingAddress implements Serializable {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -5325756439089217825L;
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,7 +63,7 @@ package com.niit.ecommercebackend.model;
 		private String zipcode;
 
 		@OneToOne(mappedBy = "billingAddress", cascade = CascadeType.ALL)
-         private User user;
+         private UserCustomer user;
 
 		public int getBillingid() {
 			return billingid;
@@ -130,13 +137,15 @@ package com.niit.ecommercebackend.model;
 			this.zipcode = zipcode;
 		}
 
-		public User getUser() {
+		public UserCustomer getUser() {
 			return user;
 		}
 
-		public void setUser(User user) {
+		public void setUser(UserCustomer user) {
 			this.user = user;
 		}
+
+		
 
 
 	}

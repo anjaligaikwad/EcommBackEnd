@@ -1,5 +1,7 @@
 package com.niit.ecommercebackend.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,12 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table
-public class ShippingAddress {
+public class ShippingAddress implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3900690580793605890L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,7 +59,7 @@ public class ShippingAddress {
 	private String zipcode;
 
 	@OneToOne(mappedBy = "shippingAddress")
-	private User user;
+	private UserCustomer user;
 
 	public int getShippingid() {
 		return shippingid;
@@ -126,11 +133,13 @@ public class ShippingAddress {
 		this.zipcode = zipcode;
 	}
 
-	public User getUser() {
+	public UserCustomer getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserCustomer user) {
 		this.user = user;
 	}
+
+	
 }

@@ -1,6 +1,8 @@
 package com.niit.ecommercebackend.model;
 
-	import javax.persistence.Column;
+	import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +14,11 @@ import org.springframework.stereotype.Component;
 	@Entity
 	@Component
 	@Table
-	public class Supplier {
+	public class Supplier implements Serializable{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -3240974945994275653L;
 		@Id
 		@Column
 		@GeneratedValue(strategy=GenerationType.AUTO)//for autonumber

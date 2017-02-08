@@ -1,5 +1,7 @@
 package com.niit.ecommercebackend.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 @Entity
 @Table
-public class Product {
+public class Product implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4555114967640985965L;
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.AUTO)//for autonumber
@@ -21,12 +27,12 @@ public class Product {
 		private int productId;
 		private String productName;
 		private String brand;
-		private double price;
+		private int price;
 		private String desc;
 		private String supplierName;
 		private String categoryName;
 		
-		public Product(int id, String name, String brand, double price, String category, String desc) {
+		public Product(int id, String name, String brand, int price, String category, String desc) {
 		productId=id;
 		this.productName=name;
 		this.brand=brand;
@@ -69,10 +75,10 @@ public class Product {
 		public void setBrand(String brand) {
 			this.brand = brand;
 		}
-		public double getPrice() {
+		public int getPrice() {
 			return price;
 		}
-		public void setPrice(double price) {
+		public void setPrice(int price) {
 			this.price = price;
 		}
 		

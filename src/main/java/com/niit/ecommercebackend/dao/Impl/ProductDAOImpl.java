@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -14,7 +15,7 @@ import com.niit.ecommercebackend.model.Category;
 import com.niit.ecommercebackend.model.Product;
 import com.niit.ecommercebackend.model.Supplier;
 
-@Repository("pDAO")
+@Repository("ProductDAO")
 @Transactional
 @EnableTransactionManagement
 public class ProductDAOImpl implements ProductDAO {
@@ -53,13 +54,15 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	public List<Category> listcatname() {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "select categoryName from Category";
+		Query query = sessionFactory.openSession().createQuery(hql);
+		return query.list();
 	}
 
 	public List<Supplier> listsupname() {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "select supplierName from Supplier";
+		Query query = sessionFactory.openSession().createQuery(hql);
+		return query.list();
 	}
 
 }

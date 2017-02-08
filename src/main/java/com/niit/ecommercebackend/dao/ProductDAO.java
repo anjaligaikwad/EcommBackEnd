@@ -15,4 +15,5 @@ public interface ProductDAO {
 	public void removeProduct(int id);
 	public List<Category> listcatname();
 	public List<Supplier> listsupname();
+
 }
